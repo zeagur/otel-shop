@@ -19,7 +19,7 @@ spec:
       {{ end }}
       containers:
       - name: {{ .Release.Name }}-front
-        image: {{ .Values.image.repo }}/{{ .Values.image.prefix }}-front:{{ .Values.image.version }}
+        image: quay.io/zeagur/otel-shop/front:1.0.0
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
         - name: WEB_HOST

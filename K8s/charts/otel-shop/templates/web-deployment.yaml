@@ -19,7 +19,7 @@ spec:
       {{ end }}
       containers:
       - name: {{ .Release.Name }}-web
-        image: {{ .Values.image.repo }}/{{ .Values.image.prefix }}-web:{{ .Values.image.version }}
+        image: quay.io/zeagur/otel-shop/web:1.0.0
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
         - name: INSTANA_AGENT_HOST
