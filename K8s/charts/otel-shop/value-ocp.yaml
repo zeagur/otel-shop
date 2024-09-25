@@ -1,0 +1,62 @@
+# Registry and repository for Docker images
+# Default is docker/instanacedricziel/image:latest
+image:
+  repo: instanacedricziel
+  prefix: otel-shop
+  # [bump]
+  version: 0.1.174
+  pullPolicy: Always
+
+# Alternative payment gateway URL
+# Default is https://www.paypal.com
+payment:
+  gateway: null
+  #gateway: https://www.worldpay.com
+
+cart:
+  opentelemetry:
+    exporter:
+      otlp:
+        endpoint: "$(INSTANA_AGENT_HOST):4317"
+
+shipping:
+  opentelemetry:
+    exporter:
+      otlp:
+        # for "opentelemetry-javaagent" the url scheme is mandatory, either "http" or "https"
+        endpoint: "http://$(INSTANA_AGENT_HOST):4317"
+
+# EUM configuration
+# Provide your key and set the endpoint
+eum:
+  key: null
+  url: https://eum-eu-west-1.instana.io
+  #url: https://eum-us-west-2.instana.io
+
+# Pod Security Policy
+psp:
+  enabled: true
+
+# For the mini ones minikube, minishift set to true
+nodeport: false
+
+# "special" Openshift. Set to true when deploying to any openshift flavour
+openshift: true
+
+# Storage class to use with redis statefulset.
+redis:
+  storageClassName: ocs-storagecluster-cephfs
+
+mysql:
+  storageClassName: ocs-storagecluster-cephfs
+
+ocCreateRoute: true
+
+load:
+  enabled: true
+
+opentelemetry:
+  exporter:
+    otlp:
+      endpoint: "$(INSTANA_AGENT_HOST):4317"
+      headers: ""
