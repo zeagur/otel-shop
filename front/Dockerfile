@@ -20,6 +20,14 @@ ADD otel_ngx_module.so /usr/share/nginx/modules/otel_ngx_module.so
 
 COPY docker-entrypoint.sh /
 
+RUN adduser front
+RUN adduser front root
+
+RUN chgrp -R 0 /etc && \
+    chmod -R g=u /etc
+
+USER front
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]

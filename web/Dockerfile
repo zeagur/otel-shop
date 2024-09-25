@@ -10,5 +10,13 @@ COPY conf/opentelemetry.conf /etc/apache2/mods-available/opentelemetry.conf
 
 COPY conf/status.conf /etc/apache2/mods-available/status.conf
 
+RUN adduser web
+RUN adduser web root
+
 RUN a2enmod opentelemetry
 RUN a2enmod status
+
+RUN chgrp -R 0 /var && \
+    chmod -R g=u /var
+
+USER web
