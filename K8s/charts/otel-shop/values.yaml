@@ -45,10 +45,10 @@ openshift: false
 
 # Storage class to use with redis statefulset.
 redis:
-  storageClassName: standard
+  storageClassName: ocs-storagecluster-cephfs
 
 mysql:
-  storageClassName: standard
+  storageClassName: ocs-storagecluster-cephfs
 
 ocCreateRoute: false
 
