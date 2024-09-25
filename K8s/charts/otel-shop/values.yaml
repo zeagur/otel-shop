@@ -5,7 +5,7 @@ image:
   prefix: otel-shop
   # [bump]
   version: 0.1.175
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
 
 # Alternative payment gateway URL
 # Default is https://www.paypal.com
