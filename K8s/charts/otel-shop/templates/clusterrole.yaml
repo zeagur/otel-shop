@@ -9,7 +9,7 @@ rules:
   resourceNames:
   - {{ .Release.Name }}
   resources:
-  - podsecuritypolicies
+  - '*'
   verbs:
   - use
 {{ end }}
